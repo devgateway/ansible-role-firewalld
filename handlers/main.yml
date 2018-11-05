@@ -1,0 +1,4 @@
+---
+- name: Firewall settings changed
+  debug:
+    msg: Firewall settings changed

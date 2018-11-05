@@ -1,1 +1,19 @@
 ---
+- name: Install Firewalld
+  package:
+    name: firewalld
+
+- name: Enable and start Firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: Configure Firewalld services
+  firewalld:
+    service: "{{ item }}"
+    state: enabled
+    immediate: true
+    permanent: true
+  loop: "{{ fwd_services }}"
+  notify: Firewall settings changed

@@ -6,7 +6,9 @@ Install and run Firewalld, and enable services.
 
 ### `fwd_services`
 
-List of services to enable. Note that the services must already be known to Firewalld, i.e. their
+List of services or ports (in the format of `port/protocol` or `port-port/protocol`) to enable.
+
+Note that the services must already be known to Firewalld, i.e. their
 packages must be installed.
 
 ## Playbook Example

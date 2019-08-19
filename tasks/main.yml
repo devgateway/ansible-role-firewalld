@@ -11,7 +11,8 @@
 
 - name: Configure Firewalld services
   firewalld:
-    service: "{{ item }}"
+    service: "{{ ('/' in item) | ternary(omit, item) }}"
+    port: "{{ ('/' in item) | ternary(item, omit) }}"
     state: enabled
     immediate: true
     permanent: true
